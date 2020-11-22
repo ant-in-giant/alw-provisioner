@@ -1,0 +1,4 @@
+---
+login_shell_path: "{{ lookup('env','SHELL') }}"
+promptfiles:
+  - prompt_pure_mod_setup

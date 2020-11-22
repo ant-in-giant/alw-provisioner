@@ -1,0 +1,24 @@
+---
+- name: Check yum list zsh
+  shell: yum list | grep zsh
+  become: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python2
+  register: zsh_is_installed
+  ignore_errors: True
+  changed_when: False
+
+# prezto
+- stat: path=~/.zprezto
+  register: prezto_install_path
+  when: zsh_is_installed != ""
+
+- name: Install prezto
+  git: repo=https://github.com/sorin-ionescu/prezto.git recursive=yes dest=~/.zprezto
+  when: ( prezto_install_path.stat.exists == False ) and ( zsh_is_installed != "" )
+
+# pure
+- name: Copy custom prompt to prezto modules directory
+  copy: src={{ item }} dest=~/.zprezto/modules/prompt/functions force=yes backup=yes
+  with_items: "{{ promptfiles }}"
+

@@ -1,0 +1,12 @@
+---
+- name: Install Linuxbrew
+  git: repo=https://github.com/Homebrew/brew.git recursive=yes dest=~/.linuxbrew/Homebrew
+
+- name: Make directory for Linuxbrew/bin
+  file: path=~/.linuxbrew/bin state=directory
+
+- name: Set symbolic link to Linuxbrew/bin
+  shell: "ln -s ~/.linuxbrew/Homebrew/bin/brew ~/.linuxbrew/bin/brew"
+
+- name: Enable brew command
+  shell: "eval $(~/.linuxbrew/bin/brew shellenv)"

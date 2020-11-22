@@ -1,0 +1,12 @@
+yum_packages:
+  - { name: tmux }
+
+extra_packages:
+  - { topic: vim }
+  - { topic: gimp }
+  - { topic: docker }
+
+homebrew_packages:
+  - { name: ghq }
+  - { name: peco }
+  - { name: zsh-completion }
