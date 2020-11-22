@@ -11,7 +11,7 @@ my Workspace (Amazon Linux 2) provisioner
 
 
 ## Before Setup Process
-1. `git clone https://github.com/sogaoh/alw-provisioner.git`
+1. `git clone https://github.com/ant-in-giant/alw-provisioner.git`
 2. `cd /path/to/alw-provisioner`
 3. `make brew`
 4. `make zsh`      # [optional]
