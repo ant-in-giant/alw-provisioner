@@ -15,7 +15,7 @@ my Workspace (Amazon Linux 2) provisioner
 2. `cd /path/to/alw-provisioner`
 3. `make brew`
 4. `make zsh`      # [optional]
-5. `make hostname` # [optional]
+5. `make ij`       # [optional]
 6. (Uncomment out `# amazon-linux-extras` part in  roles/packages/tasks/main.yml)  # if necessary
 
 

@@ -1,5 +1,9 @@
 yum_packages:
   - { name: tmux }
+  - { name: python2-pip }
+  - { name: python3-pip }
+  - { name: dnsmasq }
+  - { name: bind-utils }
 
 extra_packages:
   - { topic: vim }
@@ -10,3 +14,8 @@ homebrew_packages:
   - { name: ghq }
   - { name: peco }
   - { name: zsh-completion }
+  - { name: anyenv }
+
+pip_packages:
+  - { name: docker-compose }
+  - { name: fabric }

@@ -77,3 +77,9 @@ bindkey '^F' peco-cdr
 #bindkey '^D' peco-cdr
 
 
+# anyenv
+eval "$(anyenv init -)"
+
+
+# IntelliJ IDEA
+export PATH="$HOME/Applications/idea/bin:$PATH"

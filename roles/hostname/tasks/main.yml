@@ -1,4 +1,4 @@
 - name: set hostname
-  become: true
+  become: yes
   hostname: name={{host_name}}
 

@@ -1,7 +1,7 @@
 ---
 - name: Check yum list zsh
   shell: yum list | grep zsh
-  become: true
+  become: yes
   vars:
     ansible_python_interpreter: /usr/bin/python2
   register: zsh_is_installed

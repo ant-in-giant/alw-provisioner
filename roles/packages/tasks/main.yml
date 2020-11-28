@@ -42,3 +42,18 @@
   shell: |
     brew info {{ item | basename }} > brew_info/{{ item | basename }}
   with_items: "{{ brew_result.results | selectattr('changed') | map(attribute='item') | map(attribute='name') | list }}"
+
+
+# pip
+- name: Checking whether pip command is installed
+  shell: type pip
+  become: yes
+  register: pip_is_installed
+  ignore_errors: True
+  changed_when: False
+
+- name: Install/Upgrade pip packages
+  pip: name={{ item.name }} state={{ item.state|default('latest') }}
+  become: yes
+  with_items: "{{ pip_packages }}"
+  when: pip_is_installed is not skipped and pip_is_installed.stdout != 'pip not found'

@@ -1,0 +1,14 @@
+---
+# refs https://www.bonusbits.com/wiki/HowTo:Install_IntelliJ_IDEA_on_Amazon_Linux_Workspace
+
+- name: Download IntelliJ IDEA
+  shell: "wget https://download.jetbrains.com/idea/ideaIU-{{idea_version}}.tar.gz -P $HOME/Downloads"
+
+- name: Make directory for Applications/idea
+  shell: "mkdir -p $HOME/Applications/idea"
+
+- name: Extract downloaded Archive
+  shell: "tar -xzf $HOME/Downloads/ideaIU-{{idea_version}}.tar.gz --strip-components 1 -C $HOME/Applications/idea"
+
+
+

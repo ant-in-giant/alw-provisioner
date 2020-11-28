@@ -21,6 +21,9 @@ hostname:
 brew:
 	ansible-playbook _linuxbrew.yml -i "localhost," --tags=linuxbrew -K
 
+ij:
+	ansible-playbook _intellij-idea.yml -i "localhost," --tags=intellij-idea -K
+
 
 help:
 	cat Makefile
