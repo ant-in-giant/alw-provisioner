@@ -7,3 +7,4 @@ dotfiles_name:
   - .zprofile
   - .zshenv
   - .zshrc
+  - .vimrc

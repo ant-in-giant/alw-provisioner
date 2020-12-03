@@ -1,4 +1,5 @@
 *.retry
+/*/.ansible/*
 brew_info
 inventory.yml
 variables.yaml

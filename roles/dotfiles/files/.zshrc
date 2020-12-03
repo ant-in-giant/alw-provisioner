@@ -76,6 +76,16 @@ zle -N peco-cdr
 bindkey '^F' peco-cdr
 #bindkey '^D' peco-cdr
 
+function peco-docker-images() {
+  local images="$(sudo docker images | tail -n +2 | sort | peco --prompt 'DOCKER IMAGES>' | awk '{print $3}' ORS=' ')"
+  [ -z "$images" ] && return
+  BUFFER="$LBUFFER$images$RBUFFER"
+  CURSOR=$#BUFFER
+}
+
+zle -N peco-docker-images
+bindkey '^x^i' peco-docker-images
+
 
 # anyenv
 eval "$(anyenv init -)"

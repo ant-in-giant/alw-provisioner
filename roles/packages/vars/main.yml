@@ -15,6 +15,13 @@ homebrew_packages:
   - { name: peco }
   - { name: zsh-completion }
   - { name: anyenv }
+  - { name: exa }
+  - { name: bat }
+  - { name: procs }
+#  - { name: fd }
+#  - { name: sd }
+#  - { name: ripgrep }
+#  - { name: tokei }
 
 pip_packages:
   - { name: docker-compose }

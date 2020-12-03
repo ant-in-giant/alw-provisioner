@@ -11,11 +11,11 @@ my Workspace (Amazon Linux 2) provisioner
 
 
 ## Before Setup Process
-1. `git clone https://github.com/ant-in-giant/alw-provisioner.git`
+1. `git clone https://github.com/sogaoh/alw-provisioner.git`
 2. `cd /path/to/alw-provisioner`
 3. `make brew`
 4. `make zsh`      # [optional]
-5. `make ij`       # [optional]
+5. `make hostname` # [optional]
 6. (Uncomment out `# amazon-linux-extras` part in  roles/packages/tasks/main.yml)  # if necessary
 
 
@@ -38,3 +38,5 @@ my Workspace (Amazon Linux 2) provisioner
 - https://docs.aws.amazon.com/workspaces/index.html
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-ami-basics.html#extras-library
 - https://github.com/sogaoh/mba-provisioner
+- [Amazon Linux WorkSpaces で個別の作業環境を作り込む](https://zenn.dev/sogaoh/scraps/d1cf2e766961e19a1a15)
+
