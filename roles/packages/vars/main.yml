@@ -26,3 +26,4 @@ homebrew_packages:
 pip_packages:
   - { name: docker-compose }
   - { name: fabric }
+  - { name: ansible-lint }

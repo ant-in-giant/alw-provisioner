@@ -90,6 +90,11 @@ bindkey '^x^i' peco-docker-images
 # anyenv
 eval "$(anyenv init -)"
 
+# nvm
+export NVM_NODEJS_ORG_MIRROR=http://nodejs.org/dist/
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
+
 
 # IntelliJ IDEA
 export PATH="$HOME/Applications/idea/bin:$PATH"
