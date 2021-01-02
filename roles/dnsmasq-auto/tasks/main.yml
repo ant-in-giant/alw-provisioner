@@ -1,0 +1,14 @@
+---
+# refs https://aws.amazon.com/jp/premiumsupport/knowledge-center/dns-resolution-failures-ec2-linux/
+
+- name: Download AutoDnsmasq.sh script
+  shell: "wget -P /tmp/ https://raw.githubusercontent.com/awslabs/aws-support-tools/master/EC2/AutomateDnsmasq/AutomateDnsmasq.sh"
+  become: yes
+
+- name: Chmod AutoDnsmasq.sh script
+  shell: "chmod +x /tmp/AutomateDnsmasq.sh"
+  become: yes
+
+- name: Execute AutoDnsmasq.sh script
+  shell: "bash /tmp/AutomateDnsmasq.sh"
+  become: yes

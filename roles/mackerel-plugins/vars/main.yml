@@ -1,0 +1,19 @@
+yum_packages:
+  - { name: mackerel-agent-plugins }
+  - { name: mackerel-check-plugins }
+
+
+metrics_linux:
+  content: |
+    [plugin.metrics.linux]
+    command = ["mackerel-plugin-linux"]
+
+metrics_inode:
+  content: |
+    [plugin.metrics.inode]
+    command = ["mackerel-plugin-inode"]
+
+metrics_docker:
+  content: |
+    [plugin.metrics.docker]
+    command = ["mackerel-plugin-docker", "-name-format", "name"]

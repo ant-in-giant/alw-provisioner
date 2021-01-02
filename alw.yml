@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3"
+
+  roles:
+    - { role: packages, tags: packages }
+    - { role: services, tags: services }
+    - { role: dotfiles, tags: dotfiles }

@@ -1,0 +1,10 @@
+---
+# refs https://github.com/nvm-sh/nvm
+
+- name: Download nvm installer
+  shell: "wget -P /tmp/ https://raw.githubusercontent.com/nvm-sh/nvm/{{nvm_version}}/install.sh"
+  #become: yes
+
+- name: Execute nvm installer
+  shell: "bash /tmp/install.sh"
+  #become: yes

@@ -1,0 +1,34 @@
+---
+# refs https://mackerel.io/ja/docs/entry/howto/install-agent/amazon-linux
+
+- name: Install mackerel-agent via RPM
+  shell: "rpm -ivh https://mackerel.io/file/agent/rpm/mackerel-agent-latest.amzn2.x86_64.rpm"
+  become: yes
+
+- name: Confirm /etc/mackerel-agent directory
+  file: path=/etc/mackerel-agent state=directory owner=root group=root mode=0755
+  become: yes
+
+- name: Set mackerel-agent config file
+  template :
+    src: mackerel-agent.conf.j2
+    dest: /etc/mackerel-agent/mackerel-agent.conf
+    owner: root
+    group: root
+    mode: 0666
+    backup: yes
+  become: yes
+
+- name: Enable service mackerel-agent, and not touch the state
+  service:
+    name: mackerel-agent
+    enabled: yes
+  become: yes
+  #ignore_errors: yes
+
+- name: Start service mackerel-agent, if not started
+  service:
+    name: mackerel-agent
+    state: started
+  become: yes
+  #ignore_errors: yes

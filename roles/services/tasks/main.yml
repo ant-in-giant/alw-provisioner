@@ -1,0 +1,12 @@
+---
+- name: Enable service, and not touch the state
+  service: name={{ item.name }} enabled=yes
+  become: yes
+  with_items: "{{ background_apps }}"
+  #ignore_errors: yes
+
+- name: Start service, if not started
+  service: name={{ item.name }} state=started
+  become: yes
+  with_items: "{{ background_apps }}"
+  #ignore_errors: yes

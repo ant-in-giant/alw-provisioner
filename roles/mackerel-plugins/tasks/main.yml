@@ -1,0 +1,26 @@
+---
+- set_fact:
+    ansible_facts:
+      pkg_mgr: yum
+
+# yum install/upgrade
+- name: Install/Upgrade yum packages
+  yum: name={{ item.name }} state={{ item.state|default('latest') }}
+  become: yes
+  vars:
+    ansible_python_interpreter: /usr/bin/python2
+  with_items: "{{ yum_packages }}"
+
+# add plugin settings
+- name: Set mackerel-agent.conf
+  blockinfile:
+    dest: /etc/mackerel-agent/mackerel-agent.conf
+    backup: yes
+    block: |
+      {{ item.content }}
+    marker: ""
+  with_items:
+    - "{{ metrics_linux }}"
+    - "{{ metrics_docker }}"
+  changed_when: true
+  notify: "restart mackerel-agent"

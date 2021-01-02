@@ -5,17 +5,16 @@ my Workspace (Amazon Linux 2) provisioner
 ## Prerequisite
 - Amazon Linux WorkSpaces Initialized
 - **Take note of your password**
-- Default shell changed to `zsh`
 - Python3 installed (`sudo yum install python3`)
 - Ansible installed (`sudo amazon-linux-extras install ansible2`)
 
 
 ## Before Setup Process
-1. `git clone https://github.com/sogaoh/alw-provisioner.git`
+1. `git clone https://github.com/ant-in-giant/alw-provisioner.git`
 2. `cd /path/to/alw-provisioner`
-3. `make brew`
-4. `make zsh`      # [optional]
-5. `make hostname` # [optional]
+3. `make dns`
+4. `make brew`
+5. `make zsh`      # [optional]
 6. (Uncomment out `# amazon-linux-extras` part in  roles/packages/tasks/main.yml)  # if necessary
 
 
@@ -32,6 +31,8 @@ my Workspace (Amazon Linux 2) provisioner
 
 - etc...
   - `make dot`
+  - `make nvm`
+  - `make ij`
 
 
 ## References
