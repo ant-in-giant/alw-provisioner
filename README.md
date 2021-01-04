@@ -11,11 +11,10 @@ my Workspace (Amazon Linux 2) provisioner
 
 ## Before Setup Process
 1. `git clone https://github.com/ant-in-giant/alw-provisioner.git`
-2. `cd /path/to/alw-provisioner`
-3. `make dns`
-4. `make brew`
-5. `make zsh`      # [optional]
-6. (Uncomment out `# amazon-linux-extras` part in  roles/packages/tasks/main.yml)  # if necessary
+1. `cd /path/to/alw-provisioner`
+1. `make extra`
+1. `make brew`   # [optional]
+1. `make zsh`    # [optional]
 
 
 ## Usage
@@ -33,7 +32,9 @@ my Workspace (Amazon Linux 2) provisioner
   - `make dot`
   - `make nvm`
   - `make ij`
-
+  - `make mkr-ag`
+  - `make mkr-pl`
+  
 
 ## References
 - https://docs.aws.amazon.com/workspaces/index.html

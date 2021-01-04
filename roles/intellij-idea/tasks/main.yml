@@ -11,4 +11,18 @@
   shell: "tar -xzf $HOME/Downloads/ideaIU-{{idea_version}}.tar.gz --strip-components 1 -C $HOME/Applications/idea"
 
 
+# refs https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
+# 「外部ファイルの変更同期は遅い可能性があります」の対処
+- name: Set /etc/sysctl.d/idea.conf
+  copy :
+    src: etc/sysctl.d/idea.conf
+    dest: /etc/sysctl.d/idea.conf
+    owner: root
+    group: root
+    mode: 0666
+    backup: yes
+  become: yes
 
+- name: Apply the /etc/sysctl.d/idea.conf change
+  shell: "sysctl -p --system"
+  become: yes

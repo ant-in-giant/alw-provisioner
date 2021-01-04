@@ -3,13 +3,7 @@ yum_packages:
   - { name: python2-pip }
   - { name: python3-pip }
 #  - { name: dnsmasq }
-  - { name: bind-utils }
-
-extra_packages:
-  - { topic: vim }
-  - { topic: gimp }
-  - { topic: docker }
-  - { topic: postgresql11 }
+#  - { name: bind-utils }
 
 homebrew_packages:
   - { name: ghq }

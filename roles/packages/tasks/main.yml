@@ -11,14 +11,6 @@
     ansible_python_interpreter: /usr/bin/python2
   with_items: "{{ yum_packages }}"
 
-## amazon-linux-extras
-#- name: Install amazon-linux-extras packages
-#  shell: "amazon-linux-extras install {{ item.topic }}"
-#  become: yes
-#  vars:
-#    ansible_python_interpreter: /usr/bin/python2
-#  with_items: "{{ extra_packages }}"
-
 # linuxbrew
 - name: Update Homebrew
   homebrew: update_homebrew=yes
@@ -46,14 +38,14 @@
 
 # pip
 - name: Checking whether pip command is installed
-  shell: type pip
+  shell: type pip3
   become: yes
-  register: pip_is_installed
+  register: pip3_is_installed
   ignore_errors: True
   changed_when: False
 
 - name: Install/Upgrade pip packages
-  pip: name={{ item.name }} state={{ item.state|default('latest') }}
+  pip: name={{ item.name }} executable=pip3 state={{ item.state|default('latest') }}
   become: yes
   with_items: "{{ pip_packages }}"
-  when: pip_is_installed is not skipped and pip_is_installed.stdout != 'pip not found'
+  when: pip3_is_installed is not skipped and pip3_is_installed.stdout != 'pip3 not found'

@@ -1,26 +1,33 @@
 ---
-- set_fact:
-    ansible_facts:
-      pkg_mgr: yum
-
-# yum install/upgrade
-- name: Install/Upgrade yum packages
-  yum: name={{ item.name }} state={{ item.state|default('latest') }}
+- name: Install mackerel-agent-plugins via RPM
+  shell: "rpm -ivh https://github.com/mackerelio/mackerel-agent-plugins/releases/download/v{{agent_plugins_version}}/mackerel-agent-plugins-{{agent_plugins_version}}-1.amzn2.x86_64.rpm"
   become: yes
-  vars:
-    ansible_python_interpreter: /usr/bin/python2
-  with_items: "{{ yum_packages }}"
 
-# add plugin settings
-- name: Set mackerel-agent.conf
-  blockinfile:
+- name: Install mackerel-go-check-plugins via RPM
+  shell: "rpm -ivh https://github.com/mackerelio/go-check-plugins/releases/download/v{{go_check_plugins_version}}/mackerel-check-plugins-{{go_check_plugins_version}}-1.amzn2.x86_64.rpm"
+  become: yes
+
+- name: Set mackerel-agent config file
+  template :
+    src: mackerel-agent.conf.j2
     dest: /etc/mackerel-agent/mackerel-agent.conf
+    owner: root
+    group: root
+    mode: 0666
     backup: yes
-    block: |
-      {{ item.content }}
-    marker: ""
-  with_items:
-    - "{{ metrics_linux }}"
-    - "{{ metrics_docker }}"
-  changed_when: true
+  become: yes
   notify: "restart mackerel-agent"
+
+## add plugin settings
+#- name: Set mackerel-agent.conf
+#  blockinfile:
+#    dest: /etc/mackerel-agent/mackerel-agent.conf
+#    backup: yes
+#    block: |
+#      {{ item.content }}
+#    marker: ""
+#  with_items:
+#    - "{{ metrics_linux }}"
+#    - "{{ metrics_docker }}"
+#  changed_when: true
+#  notify: "restart mackerel-agent"

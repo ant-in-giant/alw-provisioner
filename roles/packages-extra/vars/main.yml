@@ -1,0 +1,5 @@
+extra_packages:
+  - { topic: vim }
+  - { topic: gimp }
+  - { topic: docker }
+  - { topic: postgresql11 }

@@ -9,6 +9,6 @@
   shell: "chmod +x /tmp/AutomateDnsmasq.sh"
   become: yes
 
-- name: Execute AutoDnsmasq.sh script
-  shell: "bash /tmp/AutomateDnsmasq.sh"
-  become: yes
+#- name: Execute AutoDnsmasq.sh script
+#  shell: "/tmp/AutomateDnsmasq.sh"
+#  become: yes

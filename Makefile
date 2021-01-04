@@ -8,6 +8,9 @@ test:
 	ansible-playbook alw.yml -i "localhost," -K -C -D -v
 
 
+extra:
+	ansible-playbook _extra.yml -i "localhost," --tags=extra-packages -K
+
 packages:
 	ansible-playbook alw.yml -i "localhost," --tags=packages -K
 
@@ -21,8 +24,8 @@ dot:
 hostname:
 	ansible-playbook _hostname.yml -i "localhost," --tags=hostname -K
 
-dns:
-	ansible-playbook _dnsmasq-auto.yml -i "localhost," --tags=dnsmasq-auto -K
+#dns:
+#	ansible-playbook _dnsmasq-auto.yml -i "localhost," --tags=dnsmasq-auto -K
 
 brew:
 	ansible-playbook _linuxbrew.yml -i "localhost," --tags=linuxbrew -K
@@ -37,10 +40,10 @@ mkr-ag:
 	ansible-playbook _mackerel-agent.yml -i "localhost," --tags=mackerel-agent -e @variables.yaml -K
 
 mkr-pl:
-	ansible-playbook _mackerel-plugins.yml -i "localhost," --tags=mackerel-plugins -K -C -vvvv
+	ansible-playbook _mackerel-plugins.yml -i "localhost," --tags=mackerel-plugins -e @variables.yaml -K
 
 nvm:
-	ansible-playbook _nvm.yml -i "localhost," --tags=nvm -K
+	ansible-playbook _nvm.yml -i "localhost," --tags=nvm
 
 
 help:

@@ -1,0 +1,10 @@
+apikey = "{{ mackerel_agent_apikey }}"
+
+[plugin.metrics.linux]
+command = ["/usr/bin/mackerel-plugin-linux"]
+
+[plugin.metrics.inode]
+command = ["/usr/bin/mackerel-plugin-inode"]
+
+[plugin.metrics.docker]
+command = ["/usr/bin/mackerel-plugin-docker", "-name-format", "name"]

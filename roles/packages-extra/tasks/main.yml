@@ -1,0 +1,12 @@
+---
+- set_fact:
+    ansible_facts:
+      pkg_mgr: yum
+
+# amazon-linux-extras
+- name: Install amazon-linux-extras packages
+  shell: "amazon-linux-extras install {{ item.topic }}"
+  become: yes
+  vars:
+    ansible_python_interpreter: /usr/bin/python2
+  with_items: "{{ extra_packages }}"
