@@ -2,8 +2,8 @@ yum_packages:
   - { name: tmux }
   - { name: python2-pip }
   - { name: python3-pip }
-#  - { name: dnsmasq }
-#  - { name: bind-utils }
+  - { name: dnsmasq }
+  - { name: bind-utils }
 
 homebrew_packages:
   - { name: ghq }
@@ -17,6 +17,12 @@ homebrew_packages:
 #  - { name: sd }
 #  - { name: ripgrep }
 #  - { name: tokei }
+  - { name: tflint }
+  - { name: terraformer }
+  - { name: tfsec }
+  - { name: direnv }
+  - { name: jsonnet }
+  - { name: pv }
 
 pip_packages:
   - { name: docker-compose }

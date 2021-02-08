@@ -1,0 +1,14 @@
+---
+# refs https://circleci.com/docs/ja/2.0/local-cli/#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB
+
+- name: Download ciccleci CLI installer
+  shell: "curl -o /tmp/circleci_install.sh -fLSs https://circle.ci/cli"
+  become: yes
+
+- name: chmod ciccleci CLI installer
+  shell: "chmod +x /tmp/circleci_install.sh"
+  become: yes
+
+#- name: Execute ciccleci CLI installer
+#  shell: "/tmp/circleci_install.sh"
+#  become: yes

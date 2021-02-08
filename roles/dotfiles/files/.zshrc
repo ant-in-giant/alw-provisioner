@@ -90,6 +90,20 @@ bindkey '^x^i' peco-docker-images
 # anyenv
 eval "$(anyenv init -)"
 
+
+# goenv
+export GOENV_ROOT=$HOME/.anyenv/envs/goenv
+export PATH=$GOENV_ROOT/bin:$PATH
+if command -v goenv 1>/dev/null 2>&1; then
+  eval "$(goenv init -)"
+fi
+
+# tfenv
+export TFENV_ROOT=$HOME/.anyenv/envs/tfenv
+export PATH=$TFENV_ROOT/bin:$PATH
+#exec $SHELL -l
+
+
 # nvm
 export NVM_NODEJS_ORG_MIRROR=http://nodejs.org/dist/
 export NVM_DIR="$HOME/.nvm"
@@ -99,3 +113,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # IntelliJ IDEA
 export PATH="$HOME/Applications/idea/bin:$PATH"
+
+# direnv
+eval "$(direnv hook zsh)"
+
+# alias
+alias cici='/usr/local/bin/circleci'

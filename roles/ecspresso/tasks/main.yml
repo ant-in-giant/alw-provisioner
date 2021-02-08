@@ -1,0 +1,14 @@
+---
+# refs hhttps://github.com/kayac/ecspresso, https://zenn.dev/fujiwara/articles/b86d91f42af150
+
+- name: Download ecspresso binary
+  shell: "curl -sL -o /tmp/ecspresso https://github.com/kayac/ecspresso/releases/download/{{ecspresso_version}}/ecspresso-v1.3.2-linux-amd64"
+  become: yes
+
+- name: chmod ecspresso binary
+  shell: "chmod +x /tmp/ecspresso"
+  become: yes
+
+- name: Place ecspresso binary
+  shell: "install /tmp/ecspresso /usr/local/bin/ecspresso"
+  become: yes

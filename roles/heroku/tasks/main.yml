@@ -1,0 +1,10 @@
+---
+# refs https://devcenter.heroku.com/articles/heroku-cli#other-installation-methods
+
+- name: Download heroku installer
+  shell: "curl -o /tmp/heroku_install.sh https://cli-assets.heroku.com/install.sh"
+  become: yes
+
+#- name: Execute heroku installer
+#  shell: "sh /tmp/heroku_install.sh"
+#  become: yes
