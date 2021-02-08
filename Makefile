@@ -12,7 +12,7 @@ extra:
 	ansible-playbook _extra.yml -i "localhost," --tags=extra-packages -K
 
 packages:
-	ansible-playbook alw.yml -i "localhost," --tags=packages -K -vvv
+	ansible-playbook alw.yml -i "localhost," --tags=packages -K
 
 services:
 	ansible-playbook alw.yml -i "localhost," --tags=services -K
