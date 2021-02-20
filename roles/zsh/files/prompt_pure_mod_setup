@@ -53,6 +53,17 @@ prompt_pure_check_cmd_exec_time() {
 	}
 }
 
+# 環境変数 AWS_PROFILE から、プロンプトに表示する文字列を作るフック関数を定義
+function prompt_awsprof_precmd {
+  profile="${AWS_PROFILE}"
+  if [[ -z "${profile}" ]]; then
+     _prompt_awsprof=""
+  else
+     _prompt_awsprof="/ AWS:%F{magenta}${profile}%f"
+  fi
+}
+
+
 prompt_pure_set_title() {
 	setopt localoptions noshwordsplit
 
@@ -145,6 +156,9 @@ prompt_pure_preprompt_render() {
 	if [[ -n $prompt_pure_git_arrows ]]; then
 		preprompt_parts+=('%F{$prompt_pure_colors[git:arrow]}${prompt_pure_git_arrows}%f')
 	fi
+
+    # AWS_PROFILE (2021/2/20 https://qiita.com/crossroad0201/items/f84b3e2fece41750755b)
+	preprompt_parts+=(' ${_prompt_awsprof}%F{blue}${_prompt_giddie_symbol}%f')
 
 	# Username and machine, if applicable.
 	[[ -n $prompt_pure_state[username] ]] && preprompt_parts+=($prompt_pure_state[username])
@@ -691,6 +705,7 @@ prompt_pure_setup() {
 	)
 	prompt_pure_colors=("${(@kv)prompt_pure_colors_default}")
 
+	add-zsh-hook precmd prompt_awsprof_precmd
 	add-zsh-hook precmd prompt_pure_precmd
 	add-zsh-hook preexec prompt_pure_preexec
 

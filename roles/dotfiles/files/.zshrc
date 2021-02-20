@@ -119,3 +119,15 @@ eval "$(direnv hook zsh)"
 
 # alias
 alias cici='/usr/local/bin/circleci'
+
+# awsp
+alias awsp="source _awsp"
+function awsp() {
+  if [ $# -ge 1 ]; then
+    export AWS_PROFILE="$1"
+    echo "Set AWS_PROFILE=$AWS_PROFILE."
+  else
+    source _awsp
+  fi
+  export AWS_DEFAULT_PROFILE=$AWS_PROFILE
+}
