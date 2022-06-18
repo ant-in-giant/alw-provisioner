@@ -1,5 +1,5 @@
-agent_plugins_version: 0.63.2
-go_check_plugins_version: 0.38.0
+agent_plugins_version: 0.71.0
+go_check_plugins_version: 0.42.0
 
 #metrics_linux:
 #  content: |
